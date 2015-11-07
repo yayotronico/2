@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>diseño de mi boton de </title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+<!-- Optional theme --> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+<link rel="stylesheet" href="css/bootstrap.css"
+</head>
+
+<body>	
+
+<div id='ubicacion'>
+</div>
+
+<script type="text/javascript">
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(mostrarUbicacion);
+	} else {alert("¡Error! Este navegador no soporta la Geolocalización.");}
+function mostrarUbicacion(position) {
+    
+	var latitud = position.coords.latitude;
+	var longitud = position.coords.longitude;
+    	
+	var exactitud = position.coords.accuracy;	
+	var div = document.getElementById("ubicacion");
+	div.innerHTML =  "<br>Latitud: " + latitud + "<br>Longitud: " + longitud + "<br>Exactitud: " + exactitud+"  mts";}	
+	
+function refrescarUbicacion() {	
+	navigator.geolocation.watchPosition(mostrarUbicacion);}	
+</script>
+
+<form><button class="btn btn-primary btn-block" onclick="mostrarUbicacion()">MOSTRAR DATOS</button>
+</form>
+<br>
+<form name="formulario"method="post"action="carga.php">
+       <button class="bnt btn-primary btn-block "onclick="cargarmap()">ENVIAR</button>
+       </form>
+<!-- Se escribe un mapa con la localizacion anterior-->
+</br>
+
+
+
+
+<script src="http://www.anidocs.es/bootstrap/docs/assets/js/bootstrap-modal.js"></script>
+   
+    <script src="http://code.jquery.com/jquery.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
